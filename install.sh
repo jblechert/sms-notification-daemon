@@ -14,7 +14,9 @@ install -m 755 main.py /usr/local/bin/sms-notification-daemon
 
 echo "Erstelle Konfigurations-Verzeichnis..."
 install -d -m 750 /etc/sms-notification-daemon
-if [ ! -f /etc/sms-notification-daemon/config.py ]; then
+if [ -f config.py ]; then
+    install -m 640 config.py /etc/sms-notification-daemon/config.py
+elif [ ! -f /etc/sms-notification-daemon/config.py ]; then
     install -m 640 config.example.py /etc/sms-notification-daemon/config.py
     echo "HINWEIS: /etc/sms-notification-daemon/config.py wurde angelegt – bitte vor dem Start anpassen!"
 fi
