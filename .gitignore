@@ -5,3 +5,4 @@ seen_messages.json
 chat_export.txt
 .claude/
 config.py
+export_chat.py
