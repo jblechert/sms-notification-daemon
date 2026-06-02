@@ -65,9 +65,10 @@ pip install requests pyserial icalendar
 
 ### Configuration
 
+`install.sh` copies `config.example.py` to `/etc/sms-notification-daemon/config.py` on first install. Edit it before starting the service:
+
 ```bash
-cp config.example.py config.py
-# edit config.py with your credentials
+sudo nano /etc/sms-notification-daemon/config.py
 ```
 
 ### WhatsApp pairing (first run only)
