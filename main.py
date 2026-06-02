@@ -18,7 +18,7 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(message)s",
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler("/home/mjb/sms-notification-daemon/daemon.log"),
+        logging.FileHandler("/var/log/sms-notification-daemon.log"),
     ],
 )
 log = logging.getLogger(__name__)

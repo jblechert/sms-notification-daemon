@@ -24,6 +24,10 @@ fi
 echo "Erstelle State-Verzeichnis..."
 install -d -m 755 -o mjb /var/lib/sms-notification-daemon
 
+echo "Erstelle Log-Datei..."
+touch /var/log/sms-notification-daemon.log
+chmod 640 /var/log/sms-notification-daemon.log
+
 echo "Installiere systemd Service..."
 install -m 644 sms-notification-daemon.service /etc/systemd/system/
 systemctl daemon-reload
