@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+daemon.log
+seen_messages.json
+chat_export.txt
+.claude/
+config.py

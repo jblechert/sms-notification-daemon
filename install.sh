@@ -1,0 +1,26 @@
+#!/bin/bash
+set -e
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Bitte als root ausführen: sudo ./install.sh"
+    exit 1
+fi
+
+echo "Baue WhatsApp-Listener..."
+(cd whatsapp && go build -o whatsapp-listener .)
+
+echo "Kopiere Daemon nach /usr/local/bin..."
+install -m 755 main.py /usr/local/bin/sms-notification-daemon
+
+echo "Erstelle State-Verzeichnis..."
+install -d -m 755 -o mjb /var/lib/sms-notification-daemon
+
+echo "Installiere systemd Service..."
+install -m 644 sms-notification-daemon.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable sms-notification-daemon
+systemctl restart sms-notification-daemon
+
+echo ""
+echo "Fertig. Status:"
+systemctl status sms-notification-daemon --no-pager
