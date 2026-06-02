@@ -6,6 +6,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/python3 /usr/local/bin/sms-notification-daemon
+Environment=PYTHONPATH=/etc/sms-notification-daemon
 Restart=on-failure
 RestartSec=10
 StateDirectory=sms-notification-daemon
