@@ -74,9 +74,10 @@ sudo nano /etc/sms-notification-daemon/config.py
 ### WhatsApp pairing (first run only)
 
 ```bash
-./whatsapp/whatsapp-listener
-# Scan the QR code printed to stderr with WhatsApp → Linked Devices
+sudo ./whatsapp-pair.sh
 ```
+
+Stops the daemon, displays the QR code in the terminal, then restarts the daemon automatically. Scan with WhatsApp → Linked Devices → Add Device.
 
 ### Install as systemd service
 
